@@ -120,6 +120,12 @@ header {
     height: auto;
 }
 
+/* Centralizando o título */
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
 @media (max-width: 768px) {
     .container {
         grid-template-columns: 1fr;
@@ -131,4 +137,7 @@ header {
             "item4"
             "footer";
     }
+}
+p {
+    margin-bottom: 20px; /* Adiciona espaço entre os parágrafos */
 }

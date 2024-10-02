@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    --spacing: 20px; /* Variável para espaçamento */
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #393434;
@@ -23,12 +27,16 @@ header {
     padding: 10px;
     background-color: #333;
     box-shadow: 0px 5px 20px black;
+    transition: background-color 0.3s ease; /* Transição para o cabeçalho */
 }
 
 .logo {
     width: 45px;
     height: 45px;
-    background-color: #ccc;
+    background-image: url(camera.png);
+    background-size: cover; /* Faz com que a imagem preencha todo o espaço */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
     border-radius: 10px;
 }
 
@@ -43,6 +51,7 @@ header {
     padding: 10px 20px;
     border-radius: 20px;
     margin-left: 10px;
+    transition: background-color 0.3s ease;
 }
 
 .menu li a:hover {
@@ -53,14 +62,14 @@ header {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 0.7fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto auto auto;
     grid-template-areas:
         "sidenav item1 item2"
         "sidenav item3 item4"
         "footer footer footer";
-    gap: 20px;
-    padding: 20px;
+        gap: var(--spacing); /* Usa a variável de espaçamento */
+        padding: var(--spacing);
     border: 1px solid #fff;
 }
 
@@ -78,12 +87,22 @@ header {
 .item:nth-child(5) { grid-area: item4; }
 
 .item {
-    background-color: #ccc;
+    background-color: #6a6969;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    min-height: 500px; /* Usar min-height para responsividade */
+    text-align: center; /* Centraliza texto */
+}
+
+.item img {
+    width: 100%;
+    border-radius: 20px;
+    height: 100%;
+    object-fit: cover;
 }
 
 .footer {
@@ -91,7 +110,7 @@ header {
     background-color: #6a6969;
     border-radius: 20px;
     text-align: center;
-    padding: 30px;
+    padding: var(--spacing);
 }
 
 .footer h3 {
@@ -114,13 +133,6 @@ header {
     border-radius: 50%;
 }
 
-.item img {
-    width: 100%;
-    border-radius: 20px;
-    height: auto;
-}
-
-/* Centralizando o título */
 h1 {
     text-align: center;
     margin: 20px 0;
@@ -139,5 +151,5 @@ h1 {
     }
 }
 p {
-    margin-bottom: 20px; /* Adiciona espaço entre os parágrafos */
+    margin-bottom: var(--spacing); /* Usa a variável de espaçamento */
 }
